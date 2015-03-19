@@ -535,7 +535,7 @@ function main() {
             // No name or email
             if (typeof settings.name === 'undefined' || typeof settings.email === 'undefined') {
 
-                //Ask for name and email
+                //Create new div if it does not exist
                 if ( $('#userInfoInput').length === 0){
 
                     var userInfoInput = $('<div id="userInfoInput" class="user-info"><div id="prudio-empty-msg"></div></div>');
@@ -545,11 +545,11 @@ function main() {
                     userInfoForm.append('<label>Email:<br/></label><p class="reply"><input id="prudio-email-input" type="text"/></p>');
                     userInfoForm.append('<input type="button" id="prudio-submit-name" value="Start Conversation"/>');
 
-                    //Added it to The DOM
+                    //Add it to The DOM
                     userInfoInput.append(userInfoForm);
                     $('.messages').append(userInfoInput);
 
-                    // Check if all if is there
+                    // Check if all needed info is there when submited
                     $('#prudio-submit-name').on('click', function(){
                         var name = $('#prudio-name-input').val();
                         var email = $('#prudio-email-input').val();
